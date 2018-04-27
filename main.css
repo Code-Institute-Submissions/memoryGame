@@ -1,0 +1,24 @@
+#red-box, #blue-box, #green-box, #purple-box, #yellow-box {
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 10px; }
+
+#red-box {
+  background-color: red; }
+
+#blue-box {
+  background-color: blue; }
+
+#green-box {
+  background-color: green; }
+
+#purple-box {
+  background-color: purple; }
+
+#yellow-box {
+  background-color: yellow; }
+
+/*# sourceMappingURL=main.css.map */

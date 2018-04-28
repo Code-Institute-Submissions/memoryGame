@@ -1,0 +1,64 @@
+@import "helpers/media-queries";
+
+body{
+    background-color: #000033;
+}
+
+%box{
+    border:1px solid #000;
+    border-radius: 10px;
+    height: 125px;
+    margin: 10px;
+    
+    @include small-phone{
+        height: 75px;
+    }
+
+}
+
+#red-box{
+    @extend %box;
+    background-color: red;
+}
+
+#blue-box{
+    @extend %box;
+    background-color: blue;
+}
+
+#green-box{
+    @extend %box;
+    background-color: green;
+}
+
+#yellow-box{
+    @extend %box;
+    background-color: yellow;
+}
+
+.main{
+    border-radius:50%;
+    border:5px double #000;
+    margin: 50px auto;
+    width: 500px;
+    height: 500px;
+    padding-top: 50px;
+    background-color: #e6e6ff;
+    
+    @include small-phone{
+        height: 300px;
+        width: 300px;
+    }
+}
+
+h1{
+    color: red;
+    background-color: #ff8080;
+    border: 2px dashed #000000;
+    margin-bottom: 25px;
+    text-align: center;
+    
+    @include small-phone{
+        font-size: 20px;
+    }
+}

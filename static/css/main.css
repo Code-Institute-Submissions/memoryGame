@@ -4,11 +4,11 @@ body {
 #red-box, #blue-box, #green-box, #yellow-box {
   border: 1px solid #000;
   border-radius: 10px;
-  height: 125px;
+  height: 75px;
   margin: 10px; }
-  @media (max-width: 575px) {
+  @media (min-width: 576px) {
     #red-box, #blue-box, #green-box, #yellow-box {
-      height: 75px; } }
+      height: 125px; } }
 
 #red-box {
   background-color: red; }
@@ -26,14 +26,15 @@ body {
   border-radius: 50%;
   border: 5px double #000;
   margin: 50px auto;
-  width: 500px;
-  height: 500px;
+  width: 300px;
+  height: 300px;
   padding-top: 50px;
   background-color: #e6e6ff; }
-  @media (max-width: 575px) {
+  @media (min-width: 576px) {
     .main {
-      height: 300px;
-      width: 300px; } }
+      height: 500px;
+      width: 500px;
+      padding-top: 75px; } }
 
 h1 {
   color: red;
@@ -41,8 +42,5 @@ h1 {
   border: 2px dashed #000000;
   margin-bottom: 25px;
   text-align: center; }
-  @media (max-width: 575px) {
-    h1 {
-      font-size: 20px; } }
 
 /*# sourceMappingURL=main.css.map */

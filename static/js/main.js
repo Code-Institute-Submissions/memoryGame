@@ -32,49 +32,53 @@ $(document).ready(function() {
 
         animates(0);
         console.log(selected);
-
-        var clickedBox = "#" + $("#" + boxes[i] + "-box").attr('id')
-        console.log(clickedBox);
-
-        $("#" + boxes[i] + "-box").click(function() {
-            console.log("Clicked");
-            $(this).data("clicked", true);
-        });
-
-        $("#" + boxes[i] + "-box").click(function() {
-            if ($(this).data('clicked') == true && "#" + this.id == clickedBox) {
-                answers.push(clickedBox);
-                console.log(answers)
-            }
-            else {
-                console.log("it didnt worked");
-                console.log(this.id)
-            }
-        });
     }
 
 
     $("#start-button").click(function() {
-        gamePlay();
+        $("#lose-message").hide();
+        $(".box").show();
+        $("#start-button").hide();
+        setTimeout(gamePlay(), 8000);
+        $("#answer-button").show();
 
         console.log(sequence);
         console.log(d);
 
     });
 
+    for (a = 0; a <= 3; a++) {
+        $("#" + boxes[a] + "-box").click(function() {
+            var clickedBox = "#" + this.id;
+            answers.push(clickedBox);
+            $(this).animate({ opacity: "0.5" }, "slow");
+            $(this).animate({ opacity: "1" }, "slow");
+            console.log(answers);
+        });
+    }
+
     $("#answer-button").click(function() {
         for (y = 0; y < sequence.length; y++) {
             if (sequence[y] == answers[y]) {
+                $("#lose-message").hide();
+                $(".box").show();
+                $("#start-button").hide();
+                setTimeout(gamePlay(), 8000);
+                $("#answer-button").show();
                 console.log("correct");
             }
             else {
-                console.log("incorrect");
+                $(".box").hide();
+                $("#lose-message").show();
+                $("#start-button").show();
+                $("#answer-button").hide();
+
             }
         }
-        for (var i = answers.length; i > 0; i--) {
+        for (var t = answers.length; t > 0; t--) {
             answers.pop();
             console.log(answers);
         }
     });
 
-})
+});

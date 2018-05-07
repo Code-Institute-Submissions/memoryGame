@@ -14,8 +14,7 @@ $(document).ready(function() {
         var selected = "#" + boxes[i] + "-box";
 
         function buildSequence() {
-            sequence[d] = selected;
-            d++;
+            sequence.push(selected);
         }
 
         buildSequence();
@@ -35,12 +34,12 @@ $(document).ready(function() {
     }
 
 
-    $("#start-button").click(function() {
+    $("#start-button, #next-button").click(function() {
         $("#lose-message").hide();
         $(".box").show();
         $("#start-button").hide();
-        setTimeout(gamePlay(), 8000);
         $("#answer-button").show();
+        gamePlay();
 
         console.log(sequence);
         console.log(d);
@@ -60,19 +59,21 @@ $(document).ready(function() {
     $("#answer-button").click(function() {
         for (y = 0; y < sequence.length; y++) {
             if (sequence[y] == answers[y]) {
-                $("#lose-message").hide();
-                $(".box").show();
-                $("#start-button").hide();
-                setTimeout(gamePlay(), 8000);
-                $("#answer-button").show();
                 console.log("correct");
+                $("#start-button").show();
             }
+
+
             else {
                 $(".box").hide();
                 $("#lose-message").show();
                 $("#start-button").show();
                 $("#answer-button").hide();
 
+                for (var t = sequence.length; t > 0; t--) {
+                    sequence.pop();
+                    console.log(sequence);
+                }
             }
         }
         for (var t = answers.length; t > 0; t--) {

@@ -4,7 +4,6 @@ $(document).ready(function() {
     var i;
     var sequence = Array();
     var answers = Array();
-    var d = 0;
     var y = 0;
     var x = 0;
 
@@ -18,19 +17,17 @@ $(document).ready(function() {
         }
 
         buildSequence();
-
-        function animates(n) {
-            $(sequence[n]).animate({ opacity: "0.5" }, "slow");
-            $(sequence[n]).animate({ opacity: "1" }, "slow");
-            n++;
-
-            if (n <= d) {
-                setTimeout(function() { animates(n); }, 2000);
-            }
-        }
-
-        animates(0);
         console.log(selected);
+    }
+
+    function animates(n) {
+        $(sequence[n]).animate({ opacity: "0.5" }, "slow");
+        $(sequence[n]).animate({ opacity: "1" }, "slow");
+        n++;
+
+        if (n <= sequence.length) {
+            setTimeout(function() { animates(n); }, 2000);
+        }
     }
 
 
@@ -39,10 +36,13 @@ $(document).ready(function() {
         $(".box").show();
         $("#start-button").hide();
         $("#answer-button").show();
+        $("#correct-message").hide();
+        $("#next-button").hide();
         gamePlay();
+        animates(0);
 
         console.log(sequence);
-        console.log(d);
+        console.log(sequence.length);
 
     });
 
@@ -60,15 +60,20 @@ $(document).ready(function() {
         for (y = 0; y < sequence.length; y++) {
             if (sequence[y] == answers[y]) {
                 console.log("correct");
-                $("#start-button").show();
+                $("#next-button").show();
+                $("#correct-message").show();
+                $("#answer-button").hide();
+                $(".box").hide();
             }
 
 
             else {
                 $(".box").hide();
                 $("#lose-message").show();
+                $("#correct-message").hide();
                 $("#start-button").show();
                 $("#answer-button").hide();
+                $("#next-button").hide();
 
                 for (var t = sequence.length; t > 0; t--) {
                     sequence.pop();

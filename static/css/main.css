@@ -45,18 +45,32 @@ h1 {
   text-align: center; }
 
 p {
+  position: absolute;
   text-align: center;
-  font-size: 50px;
+  font-size: 25px;
   color: red;
-  margin-top: 50px;
-  display: none; }
+  top: 50%;
+  display: none;
+  width: 300px;
+  padding: 5px; }
+  @media (min-width: 576px) {
+    p {
+      font-size: 40px;
+      width: 400px;
+      top: 60%; } }
 
 #answer-button {
   display: none;
-  margin-top: 20px; }
+  margin-top: 5px; }
+  @media (min-width: 576px) {
+    #answer-button {
+      margin-top: 20px; } }
 
 #next-button {
   display: none;
-  margin-top: 20px; }
+  margin-top: 5px; }
+  @media (min-width: 576px) {
+    #next-button {
+      margin-top: 20px; } }
 
 /*# sourceMappingURL=main.css.map */

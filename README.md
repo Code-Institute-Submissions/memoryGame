@@ -1,9 +1,12 @@
-Memory Game
+# Memory Game
+
 The brief of the project was to create a simple memory games based on the famous memory game known as Simon. The game needed to be a single page application, be responsive and make use of JavaScript, semantic HTML and CSS
-Game Logic
+## Game Logic
 The game creates a random sequence of boxes that will light up in order and get bigger after each turn. The random sequence will need to continue on from the previous sequence and not start as a new sequence after each turn. The user is then required to repeat this sequence back by clicking the boxes in the same order they were highlighted and pressing the answer button when completed.
 The game layout is 2 by 2 grid of four boxes each coloured red blue green and yellow. Each box is given an ID within the index.html file depending on its colour.
-   ```<div class="container main">
+
+
+    <div class="container main">
         <div class="row justify-content-centre">
             <div class="box col-4 align-self-centre" id="red-box"></div>
             <div class="box col-4 align-self-centre" id="blue-box"></div>
@@ -11,14 +14,21 @@ The game layout is 2 by 2 grid of four boxes each coloured red blue green and ye
             <div class="box col-4 align-self-centre" id="green-box"></div>
             <div class="box col-4 align-self-centre" id="yellow-box"></div>
             <div class="w-100"></div>
-        </div>```
+        </div>
+
 In order to create the sequence, an array called boxes was created and a variable called i was created
+
 ```var boxes = ["red", "blue", "green", "yellow"];```.
+
 These were used in a function called gamePlay 
 The first thing the function did was create a random number between 0 and 3 and applied this value to the variable i.
+
 ```i = Math.floor((Math.random() * 4));```
+
 This random number is then applied to a variable call selected that is defined as follows 
+
 ```var selected = "#" + boxes[i] + "-box";```
+ 
  Therefore, depending on what number was generated would define the value of selected.
 
 **i=0 would return "#red-box"**
@@ -28,12 +38,15 @@ This random number is then applied to a variable call selected that is defined a
 **i=2 would return "#green-box"**
 
 **i=3 would return "#yellow-box"**
+
 The next thing the function did was add this randomly generated item to a new array called "sequence". The more the function runs the more randomly selected boxes will be added to our array called sequence.
 
 ```javascript 
 function buildSequence() {
             sequence.push(selected);
-        }```
+        }
+```
+
 Once the sequence was created the next process we wanted to do was for the actual game to highlight the sequence to the user.
 In order to do this a new function was created called animate. jQuery was used in the coding as below
 
@@ -133,43 +146,77 @@ After the comparison has been made a for loop will also run to empty the answer 
             console.log(answers);
         }
 ```
-UX
+## UX
 As part of the UX one persona was created known as the game player.
 Persona –Game player
 Game will need to be easy to follow and not have any complicated functions. The boxes should be highlighted so that they are easily seen. Rules will need to be clear and easy to follow. Will need an option to re-start the game. Would like to be prompted when their answer is correct or incorrect. Would like to be able to play on laptop but also on the go via mobile / tablets.
 Wire frames were also created in order to design the layout of the game and these can be found [here][1]
-[1] https://github.com/cjmorgan1185/interactive-front-end-project/tree/master/Design
-Features
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
-Existing Features
+
+[1]: https://github.com/cjmorgan1185/interactive-front-end-project/tree/master/Design
+## Features
+### Existing Features
 •	Boxes are highlighted when clicked by user
 •	Restart button when game finished so user can start again
 •	Answer button once user happy with their sequence.
-Features Left to Implement
+### Features Left to Implement
 •	Scoreboard for users
-Technologies Used
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-•	JQuery
-o	The project uses JQuery to simplify javascript functions and the game play. 
-o	https://jquery.com/
-•	Bootstrap
-o	Grid layout for boxes
-o	https://getbootstrap.com/
-Testing
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-1.	Contact form:
-i.	Go to the "Contact Us" page
-ii.	Try to submit the empty form and verify that an error message about the required fields appears
-iii.	Try to submit the form with an invalid email address and verify that a relevant error message appears
-iv.	Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-Deployment
-The website has been deployed to github pages and can be found here
-Credits
-Acknowledgements
+•	User profiles
+
+### Technologies Used
+*	JQuery
+    * The project uses JQuery to simplify javascript functions and the game play. 
+    * https://jquery.com/
+* Bootstrap
+    * Grid layout for boxes
+    * https://getbootstrap.com/
+
+# Testing
+1.	Start Button:
+    1.	Click “Start Button”
+    2. Game loads
+2.	Check boxes highlight when clicked
+    1.	Click all boxes
+    2.	All boxes light up as expected
+3.	Submit answer
+    1.	Select correct answer and verify “answer correct” message appears
+    2.	Select incorrect answer and verify “incorrect answer” message appear
+4.	Next button
+    1.	Get answer correct
+    2.	Click next button
+    3.	Verify sequence begins the same as before with one extra box highlighted.
+5.	Restart 
+    1.	Get answer incorrect
+    2.	Click start button
+    3.	Verify new sequence starts and only one box lights up
+6.	Test different answer types
+    1.	Too many boxes selected verify gives incorrect answer
+    2.	Too few boxes selected verify gives incorrect answer
+    3.	No boxes selected verify gives incorrect answer
+    4.	Incorrect sequence selected verify gives incorrect answer
+    5.	Correct sequence gives correct answer
+
+7. link to browser test can be found [here][4]
+
+[4]:https://github.com/cjmorgan1185/memoryGame/blob/master/design/testing.xlsx?raw=true
+
+In relation to test 6, the first test showed that if you selected the correct sequence but added more boxes to you sequence it would still show answer correct. (i.e. sequence was red, red, blue, if user selected red, red, blue, blue, it would return correct answer message.) To fix this an extra condition was added to the answer if statement that took into account the size of the arrays
+```JavaScript
+    $("#answer-button").click(function() {
+        for (y = 0; y < sequence.length; y++) {
+            if (sequence[y] == answers[y] && sequence.length == answers.length {
+                $("#next-button").show();
+                $("#correct-message").show();
+                $("#answer-button").hide();
+                $(".box").hide();
+            }
+```
+
+# Deployment
+The website has been deployed to github pages and can be found [here][3]
+
+[3]: https://cjmorgan1185.github.io/memoryGame/
+# Credits
+## Acknowledgements
 •	Details of the original game called SIMON can be found [here][2]
-[2] https://en.wikipedia.org/wiki/Simon_(game)
+
+[2]: https://en.wikipedia.org/wiki/Simon_(game)

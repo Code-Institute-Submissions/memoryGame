@@ -152,7 +152,7 @@ Persona –Game player
 Game will need to be easy to follow and not have any complicated functions. The boxes should be highlighted so that they are easily seen. Rules will need to be clear and easy to follow. Will need an option to re-start the game. Would like to be prompted when their answer is correct or incorrect. Would like to be able to play on laptop but also on the go via mobile / tablets.
 Wire frames were also created in order to design the layout of the game and these can be found [here][1]
 
-[1]: https://github.com/cjmorgan1185/interactive-front-end-project/tree/master/Design
+[1]: https://github.com/cjmorgan1185/memoryGame/tree/master/design
 ## Features
 ### Existing Features
 •	Boxes are highlighted when clicked by user
